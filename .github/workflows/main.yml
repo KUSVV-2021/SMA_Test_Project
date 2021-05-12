@@ -35,8 +35,8 @@ jobs:
       run: sonar-scanner
            -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
            -Dsonar.host.url=${{ secrets.SONARQUBE_HOST }}
-           -Dsonar.projectKey=TestProject
-           -Dsonar.projectName=TestProject
+           -Dsonar.projectKey=SMA_Test_Project
+           -Dsonar.projectName=SMA_Test_Project
            -Dsonar.projectVersion=v0.0.1
            -Dsonar.sources=src/main
            -Dsonar.java.binaries=build/classes/main
