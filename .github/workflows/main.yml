@@ -39,7 +39,6 @@ jobs:
            -Dsonar.projectName=TestProject
            -Dsonar.projectVersion=v0.0.1
            -Dsonar.sources=${{ env.working-directory }}/src/main
-           -Dsonar.tests=${{ env.working-directory }}/src/test
            -Dsonar.java.binaries=${{ env.working-directory }}/build/classes/main
            -Dsonar.java.test.binaries=${{ env.working-directory }}/build/classes/test
            -Dsonar.jacoco.reportPaths=${{ env.working-directory }}/build/reports/jacoco/test
