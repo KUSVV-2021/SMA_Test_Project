@@ -25,18 +25,7 @@ jobs:
   sonarQubeTrigger:
     runs-on: ubuntu-latest
     needs: build
-    steps:
-    - uses: actions/checkout@master
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.1.0
-      with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
-        projectBaseDir: ${{ env.working-directory }}
-        projectKey: "TestProject"
-        projectName: "TestProject"
-        projectVersion: "v0.0.1"
-        
+    steps:        
     - name: Setup sonarqube
       uses: warchant/setup-sonar-scanner@v3
     - name: Run sonarqube
