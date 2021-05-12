@@ -36,3 +36,21 @@ jobs:
         projectKey: "TestProject"
         projectName: "TestProject"
         projectVersion: "v0.0.1"
+        
+    - name: Setup sonarqube
+      uses: warchant/setup-sonar-scanner@v3
+    - name: Run sonarqube
+      env:
+        # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: sonar-scanner
+           -Dsonar.login=${{ secrets.SONARQUBE_TOKEN }}
+           -Dsonar.host.url=${{ secrets.SONARQUBE_HOST }}
+           -Dsonar.projectKey=TestProject
+           -Dsonar.projectName=TestProject
+           -Dsonar.projectVersion=v0.0.1
+           -Dsonar.sources=${{ env.working-directory }}/src/main
+           -Dsonar.tests=${{ env.working-directory }}/src/test
+           -Dsonar.java.binaries=${{ env.working-directory }}/build/classes/main
+           -Dsonar.java.test.binaries=${{ env.working-directory }}/build/classes/test
+           -Dsonar.jacoco.reportPaths=${{ env.working-directory }}/build/reports/jacoco/test
