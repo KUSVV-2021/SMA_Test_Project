@@ -23,8 +23,6 @@ jobs:
       run: ./gradlew build  
     - name: Setup sonarqube
       uses: warchant/setup-sonar-scanner@v3
-    - name: check data
-      run: ls -R
     - name: Run sonarqube
       env:
         # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
@@ -36,6 +34,6 @@ jobs:
            -Dsonar.projectName=SMA_Test_Project
            -Dsonar.projectVersion=v0.0.1
            -Dsonar.sources=src/main
-           -Dsonar.java.binaries=build/classes/main
-           -Dsonar.java.test.binaries=build/classes/test
+           -Dsonar.java.binaries=build/classes/java/main
+           -Dsonar.java.test.binaries=build/classes/java/test
            -Dsonar.jacoco.reportPaths=build/reports/jacoco/test
