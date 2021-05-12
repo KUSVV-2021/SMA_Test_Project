@@ -35,7 +35,8 @@ jobs:
            -Dsonar.projectVersion=v0.0.1
            -Dsonar.sources=src/main
            -Dsonar.java.binaries=build/classes/java/main
-           -Dsonar.java.test.binaries=build/test-results/test
+           -Dsonar.java.test.binaries=build/classes/java/test
            -Dsonar.coverage.jacoco.xmlReportPaths=build/reports/jacoco/test/jacocoTestReport.xml
            -Dsonar.java.libraries=build/libs/*.jar
-           -Dsonar.junit.reportsPath=build/reports/tests/test
+           -Dsonar.junit.reportsPath=build/test-results/test
+           -Dsonar.sourceEncoding=UTF-8
